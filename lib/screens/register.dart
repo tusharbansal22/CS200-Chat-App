@@ -18,23 +18,55 @@ class _RegisterScreenState extends State<RegisterScreen> {
         appBar: AppBar(
           title: Text(
             'Course Chat App',
-            style: TextStyle(color: Colors.white70),
+            style: TextStyle(color: Colors.white),
           ),
-          backgroundColor: Colors.black54,
+          backgroundColor: Colors.deepPurple[900],
           centerTitle: true,
         ),
         body: Container(
+          color: Colors.deepPurple,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              TextField(
-                onChanged: (value) {
-                  email = value;
-                },
-                keyboardType: TextInputType.emailAddress,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Enter your Email Address',
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 20),
+                child: TextField(
+                  onChanged: (value) {
+                    email = value;
+                  },
+                  keyboardType: TextInputType.emailAddress,
+                  decoration: InputDecoration(
+                    fillColor: Colors.white70,
+                    filled: true,
+                    enabledBorder: OutlineInputBorder().copyWith(
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(10.0)),
+                        borderSide:
+                            const BorderSide(width: 3, color: Colors.black)),
+                    labelText: 'Enter your Email Address',
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 35,
+              ),
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 20),
+                child: TextField(
+                  onChanged: (value) {
+                    password = value;
+                  },
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    fillColor: Colors.white70,
+                    filled: true,
+                    enabledBorder: OutlineInputBorder().copyWith(
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(10.0)),
+                        borderSide:
+                            const BorderSide(width: 3, color: Colors.black)),
+                    labelText: 'Enter a strong password',
+                  ),
                 ),
               )
             ],
