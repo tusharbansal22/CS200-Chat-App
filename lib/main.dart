@@ -29,8 +29,8 @@ class MyApp extends StatelessWidget {
         'login': (context) => Login(),
         'register': (context) => RegisterScreen()
       },
-      // initialRoute: supabase.auth.currentUser != null?'home':'login',
-      initialRoute: 'register',
+      initialRoute: supabase.auth.currentUser != null ? 'home' : 'login',
+      // initialRoute: 'register',
     );
   }
 }

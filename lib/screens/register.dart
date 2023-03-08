@@ -10,7 +10,9 @@ class RegisterScreen extends StatefulWidget {
 class _RegisterScreenState extends State<RegisterScreen> {
   String email = '';
   String password = '';
+  String repassword = '';
   String rollNo = '';
+  bool wrongPass = false;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +44,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         borderRadius:
                             const BorderRadius.all(Radius.circular(10.0)),
                         borderSide:
-                            const BorderSide(width: 3, color: Colors.black)),
+                            const BorderSide(width: 2, color: Colors.black)),
                     labelText: 'Enter your Email Address',
                   ),
                 ),
@@ -64,9 +66,60 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         borderRadius:
                             const BorderRadius.all(Radius.circular(10.0)),
                         borderSide:
-                            const BorderSide(width: 3, color: Colors.black)),
+                            const BorderSide(width: 2, color: Colors.black)),
                     labelText: 'Enter a strong password',
                   ),
+                ),
+              ),
+              SizedBox(
+                height: 25,
+              ),
+              Container(
+                  child: wrongPass
+                      ? Text(
+                          'The re-entered password does not match. Please retype it.',
+                          style: TextStyle(color: Colors.red),
+                        )
+                      : null),
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 20),
+                child: TextField(
+                  onChanged: (value) {
+                    repassword = value;
+                  },
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    fillColor: Colors.white70,
+                    filled: true,
+                    enabledBorder: OutlineInputBorder().copyWith(
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(10.0)),
+                        borderSide:
+                            const BorderSide(width: 2, color: Colors.black)),
+                    labelText: 'Re-enter your password',
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 25,
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  if (password != repassword) {
+                    setState(() {
+                      wrongPass = true;
+                    });
+                  } else {
+                    setState(() {
+                      wrongPass = false;
+                    });
+                  }
+                },
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white, fixedSize: Size(100, 40)),
+                child: Text(
+                  'Register',
+                  style: TextStyle(color: Colors.deepPurple),
                 ),
               )
             ],
