@@ -1,5 +1,6 @@
 import 'package:chat/screens/home.dart';
 import 'package:chat/screens/login.dart';
+import 'package:chat/screens/logreg.dart';
 import 'package:chat/screens/register.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -27,9 +28,10 @@ class MyApp extends StatelessWidget {
       routes: {
         'home': (context) => Home(),
         'login': (context) => Login(),
-        'register': (context) => RegisterScreen()
+        'register': (context) => RegisterScreen(),
+        'logreg': (context)=> LogRegister()
       },
-      initialRoute: supabase.auth.currentUser != null ? 'home' : 'login',
+      initialRoute: supabase.auth.currentUser != null ? 'home' : 'logreg',
       // initialRoute: 'register',
     );
   }
