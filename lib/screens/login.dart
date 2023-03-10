@@ -16,26 +16,37 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Course Chat App'),
-        backgroundColor: Colors.grey.shade900,
+        title: Text(
+          'Course Chat App',
+          style: TextStyle(color: Colors.white),
+        ),
+        centerTitle: true,
+        backgroundColor: Colors.deepPurple[900],
       ),
       body: Container(
         width: double.infinity,
-        color: Colors.grey.shade700,
+        color: Colors.deepPurple,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
               height: 70,
-              decoration: BoxDecoration(
-                  color: Colors.grey.shade500,
-                  borderRadius: BorderRadius.circular(10)),
-              margin: EdgeInsets.symmetric(vertical: 2, horizontal: 20),
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              // decoration: BoxDecoration(
+              //     color: Colors.grey.shade500,
+              //     borderRadius: BorderRadius.circular(10)),
               child: TextFormField(
                 textAlign: TextAlign.center,
                 decoration: InputDecoration(
-                    labelText: "Email", border: InputBorder.none),
+                  fillColor: Colors.white70,
+                  filled: true,
+                  enabledBorder: OutlineInputBorder().copyWith(
+                      borderRadius:
+                          const BorderRadius.all(Radius.circular(10.0)),
+                      borderSide:
+                          const BorderSide(width: 2, color: Colors.black)),
+                  labelText: 'Enter your Email ID',
+                ),
                 onChanged: (value) {
                   email = value;
                 },
@@ -46,10 +57,7 @@ class _LoginState extends State<Login> {
             ),
             Container(
               height: 70,
-              decoration: BoxDecoration(
-                  color: Colors.grey.shade500,
-                  borderRadius: BorderRadius.circular(10)),
-              margin: EdgeInsets.symmetric(vertical: 2, horizontal: 20),
+              margin: EdgeInsets.symmetric(horizontal: 20),
               child: TextFormField(
                 onChanged: (value) {
                   pass = value;
@@ -57,20 +65,25 @@ class _LoginState extends State<Login> {
                 obscureText: true,
                 textAlign: TextAlign.center,
                 decoration: InputDecoration(
-                    labelText: "Password", border: InputBorder.none),
+                  fillColor: Colors.white70,
+                  filled: true,
+                  enabledBorder: OutlineInputBorder().copyWith(
+                      borderRadius:
+                          const BorderRadius.all(Radius.circular(10.0)),
+                      borderSide:
+                          const BorderSide(width: 2, color: Colors.black)),
+                  labelText: 'Enter your Password',
+                ),
               ),
             ),
             SizedBox(
               height: 40,
             ),
             Container(
-              height: 70,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                  color: Colors.grey.shade900,
-                  borderRadius: BorderRadius.circular(10)),
-              margin: EdgeInsets.symmetric(vertical: 2, horizontal: 20),
-              child: TextButton(
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white, fixedSize: Size(100, 40)),
                 onPressed: () async {
                   final AuthResponse res =
                       await supabase.auth.signInWithPassword(
@@ -79,7 +92,10 @@ class _LoginState extends State<Login> {
                   );
                   Navigator.pushNamed(context, 'chat');
                 },
-                child: Text('Login'),
+                child: Text(
+                  'Login',
+                  style: TextStyle(color: Colors.deepPurple),
+                ),
               ),
             ),
           ],

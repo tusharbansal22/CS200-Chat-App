@@ -34,6 +34,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               Container(
                 margin: EdgeInsets.symmetric(horizontal: 20),
                 child: TextField(
+                  textAlign: TextAlign.center,
                   onChanged: (value) {
                     rollNo = value;
                   },
@@ -55,6 +56,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               Container(
                 margin: EdgeInsets.symmetric(horizontal: 20),
                 child: TextField(
+                  textAlign: TextAlign.center,
                   onChanged: (value) {
                     email = value;
                   },
@@ -77,6 +79,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               Container(
                 margin: EdgeInsets.symmetric(horizontal: 20),
                 child: TextField(
+                  textAlign: TextAlign.center,
                   onChanged: (value) {
                     password = value;
                   },
@@ -107,6 +110,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               Container(
                 margin: EdgeInsets.symmetric(horizontal: 20),
                 child: TextField(
+                  textAlign: TextAlign.center,
                   onChanged: (value) {
                     repassword = value;
                   },
