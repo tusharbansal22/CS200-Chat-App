@@ -11,7 +11,13 @@ class ChatScreen extends StatefulWidget {
 class _ChatScreenState extends State<ChatScreen> {
   @override
   final supabase = Supabase.instance.client;
+  String email="";
   Future _getData() async{
+    final User? user = supabase.auth.currentUser;
+    if(user != null){
+      email=user.email!;
+      print(email);
+    }
     final data = await supabase
         .from('chats')
         .select();
@@ -36,16 +42,16 @@ class _ChatScreenState extends State<ChatScreen> {
                     itemCount:(snapshot.data).length,
                     itemBuilder: (BuildContext context, int index) {
                       return Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                          crossAxisAlignment: (snapshot.data[index]['user']=='email')?CrossAxisAlignment.start:CrossAxisAlignment.end,
                           children: [
                             Container(
                                 margin:EdgeInsets.symmetric(horizontal: 15,vertical: 2),
                                 child: Text('${snapshot.data[index]['user']}',style: TextStyle(fontSize: 12),)),
                             Container(
-                              width: double.infinity,
+                              width: 200,
                               margin:EdgeInsets.symmetric(horizontal: 15,vertical: 2),
                               padding:EdgeInsets.symmetric(horizontal: 5,vertical: 20),
-                              decoration:BoxDecoration(color: Colors.blueGrey.shade400,borderRadius: BorderRadius.circular(10)),
+                              decoration:BoxDecoration(color: (snapshot.data[index]['user']=='email')?Colors.blue.shade700:Colors.blueGrey.shade400,borderRadius: BorderRadius.circular(10)),
                               child: Text('${snapshot.data[index]['msg']}'),
                             )
                           ],
