@@ -11,7 +11,7 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   @override
   final supabase = Supabase.instance.client;
-  var username = "";
+  var email = "";
   var pass = "";
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,9 +35,9 @@ class _LoginState extends State<Login> {
               child: TextFormField(
                 textAlign: TextAlign.center,
                 decoration: InputDecoration(
-                    labelText: "Username", border: InputBorder.none),
+                    labelText: "Email", border: InputBorder.none),
                 onChanged: (value) {
-                  username = value;
+                  email = value;
                 },
               ),
             ),
@@ -71,7 +71,14 @@ class _LoginState extends State<Login> {
                   borderRadius: BorderRadius.circular(10)),
               margin: EdgeInsets.symmetric(vertical: 2, horizontal: 20),
               child: TextButton(
-                onPressed: () async {},
+                onPressed: () async {
+                  final AuthResponse res =
+                      await supabase.auth.signInWithPassword(
+                    email: email,
+                    password: pass,
+                  );
+                  Navigator.pushNamed(context, 'chat');
+                },
                 child: Text('Login'),
               ),
             ),
