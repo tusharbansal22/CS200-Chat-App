@@ -75,7 +75,11 @@ class _ChatScreenState extends State<ChatScreen> {
                           message=change;
                         },),
                       ),
-                      OutlinedButton(onPressed: (){}, child: Icon(Icons.arrow_back_ios_new_outlined))
+                      OutlinedButton(onPressed: ()async{
+                        await supabase
+                            .from('chats')
+                            .insert({'user':'${email}','msg':'${message}'});
+                      }, child: Icon(Icons.arrow_back_ios_new_outlined))
                     ],
                   ),
                 )

@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
         'logreg': (context)=> LogRegister(),
         'chat': (context)=> ChatScreen()
       },
-      initialRoute: supabase.auth.currentUser != null ? 'home' : 'chat',
+      initialRoute: supabase.auth.currentUser != null ? 'chat' : 'logreg',
       // initialRoute: 'register',
     );
   }
