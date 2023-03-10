@@ -1,4 +1,5 @@
 import 'package:chat/screens/chat.dart';
+import 'package:chat/screens/chat_2.dart';
 import 'package:chat/screens/home.dart';
 import 'package:chat/screens/login.dart';
 import 'package:chat/screens/logreg.dart';
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
         'login': (context) => Login(),
         'register': (context) => RegisterScreen(),
         'logreg': (context) => LogRegister(),
-        'chat': (context) => ChatScreen()
+        'chat': (context) => Chat()
       },
 
       initialRoute: supabase.auth.currentUser != null ? 'chat' : 'logreg',
