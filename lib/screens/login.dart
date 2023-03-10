@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class Login extends StatefulWidget {
@@ -36,15 +35,15 @@ class _LoginState extends State<Login> {
               child: TextFormField(
                 textAlign: TextAlign.center,
                 decoration: InputDecoration(
-                    labelText: "Username",
-                    border: InputBorder.none),
+                    labelText: "Username", border: InputBorder.none),
                 onChanged: (value) {
                   username = value;
                 },
               ),
             ),
-            SizedBox(height: 15,),
-
+            SizedBox(
+              height: 15,
+            ),
             Container(
               height: 70,
               decoration: BoxDecoration(
@@ -58,11 +57,12 @@ class _LoginState extends State<Login> {
                 obscureText: true,
                 textAlign: TextAlign.center,
                 decoration: InputDecoration(
-                  labelText: "Password",
-                    border: InputBorder.none),
+                    labelText: "Password", border: InputBorder.none),
               ),
             ),
-            SizedBox(height: 40,),
+            SizedBox(
+              height: 40,
+            ),
             Container(
               height: 70,
               width: double.infinity,
@@ -70,7 +70,10 @@ class _LoginState extends State<Login> {
                   color: Colors.grey.shade900,
                   borderRadius: BorderRadius.circular(10)),
               margin: EdgeInsets.symmetric(vertical: 2, horizontal: 20),
-              child: TextButton(onPressed: (){},child: Text('Login'),),
+              child: TextButton(
+                onPressed: () async {},
+                child: Text('Login'),
+              ),
             ),
           ],
         ),

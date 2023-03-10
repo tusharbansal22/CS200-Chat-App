@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({Key? key}) : super(key: key);
@@ -30,6 +31,27 @@ class _RegisterScreenState extends State<RegisterScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 20),
+                child: TextField(
+                  onChanged: (value) {
+                    rollNo = value;
+                  },
+                  decoration: InputDecoration(
+                    fillColor: Colors.white70,
+                    filled: true,
+                    enabledBorder: OutlineInputBorder().copyWith(
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(10.0)),
+                        borderSide:
+                            const BorderSide(width: 2, color: Colors.black)),
+                    labelText: 'Enter your Roll Number',
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 35,
+              ),
               Container(
                 margin: EdgeInsets.symmetric(horizontal: 20),
                 child: TextField(
@@ -75,9 +97,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 height: 25,
               ),
               Container(
+                  margin: EdgeInsets.symmetric(horizontal: 20),
                   child: wrongPass
                       ? Text(
-                          'The re-entered password does not match. Please retype it.',
+                          'The re-entered password does not match.',
                           style: TextStyle(color: Colors.red),
                         )
                       : null),
@@ -110,10 +133,32 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       wrongPass = true;
                     });
                   } else {
-                    setState(() {
-                      wrongPass = false;
-                    });
+                    setState(
+                      () async {
+                        wrongPass = false;
+                        try {
+                          var supabase = Supabase.instance.client;
+                          await supabase.auth.signUp(
+                            email: email,
+                            password: password,
+                          );
+                          await supabase
+                              .from('Student Details')
+                              .insert({'Roll ID': rollNo, 'Email ID': email});
+                          Navigator.pushNamed(context, "chat");
+                        } catch (e) {
+                          print(e);
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text('Signup failed.Please try again.'),
+                              backgroundColor: Colors.red,
+                            ),
+                          );
+                        }
+                      },
+                    );
                   }
+                  ;
                 },
                 style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white, fixedSize: Size(100, 40)),
