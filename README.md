@@ -1,16 +1,20 @@
-# chat
+###### Course-Chat-App
 
-A new Flutter project.
+## Purpose 🎯
+Usually all college based courses use either a personal chatting app like (whatsapp/telegram) for communication or a platform like canvas for the same.
+The issue with whatsapp is that it kind of invades the private life of people involved as it is primarily a personal chatting app while the issue with canvas remains ease of usage and accessibility.
 
-## Getting Started
+## Solution 💡 
+Like various organizations develop their own slack channels for communication, we believe a standard and exclusive chat app can solve the above mentioned issues. 
 
-This project is a starting point for a Flutter application.
+## Tech Stack 🛠️
+The app is primarily made on flutter , using an online postrgres based opensource databased, Supabase
 
-A few resources to get you started if this is your first Flutter project:
+## Contributors 👨‍💻
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+This project was made by `Team VIMI` for the course CS200
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Team Members
+- Tushar Bansal ([@tusharbansal22](https://github.com/tusharbansal22))
+- Aditya Sankhla ([@adismort14](https://github.com/adismort14))
+- Ravinder Sharma ([@ChiefRavinder](https://github.com/ChiefRavinder))
