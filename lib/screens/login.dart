@@ -37,6 +37,7 @@ class _LoginState extends State<Login> {
               //     borderRadius: BorderRadius.circular(10)),
               child: TextFormField(
                 textAlign: TextAlign.center,
+                keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
                   fillColor: Colors.white70,
                   filled: true,
