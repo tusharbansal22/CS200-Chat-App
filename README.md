@@ -14,6 +14,8 @@ The app is primarily made on flutter , using an online postrgres based opensourc
 
 This project was made by `Team VIMI` for the course CS200
 
+Course Instructor
+Dr. Dhiman Saha ([@c-i-p-h-e-r](https://github.com/c-i-p-h-e-r))
 Team Members
 - Tushar Bansal ([@tusharbansal22](https://github.com/tusharbansal22))
 - Aditya Sankhla ([@adismort14](https://github.com/adismort14))
