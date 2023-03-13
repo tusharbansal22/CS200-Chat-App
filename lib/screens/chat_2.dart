@@ -31,7 +31,16 @@ class _ChatState extends State<Chat> {
     return Scaffold(
         appBar: PreferredSize(
             preferredSize: Size.fromHeight(40),
-            child: AppBar(title: Text("Logs"),backgroundColor: Colors.black54,centerTitle: true,elevation: 1.5,titleTextStyle: TextStyle(color: Colors.white,fontSize: 16,fontStyle: FontStyle.normal)))
+            child: AppBar(title: Text("Logs"),actions: <Widget>[
+              IconButton(
+                  icon: Icon(Icons.close),
+                  onPressed: () async {
+                    // getStream();
+                    //Implement logout functionality
+                    await supabase.auth.signOut();
+                    Navigator.pop(context);
+                  }),
+            ],backgroundColor: Colors.black54,centerTitle: true,elevation: 1.5,titleTextStyle: TextStyle(color: Colors.white,fontSize: 16,fontStyle: FontStyle.normal)))
         , body: SafeArea(
         child: StreamBuilder(
             stream: _stream,
