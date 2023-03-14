@@ -12,29 +12,36 @@ class _LogRegisterState extends State<LogRegister> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Course Chat App"),
+        backgroundColor: Colors.pinkAccent.shade700,
+        title: Text("Course Chat App", style: TextStyle(color: Colors.white),),
         centerTitle: true,
       ),
       body: Container(
+        color: Colors.black87,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           // crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Center(
-              child: Container(
-                width: 220,
-                height: 60,
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, "login");
-                  },
-                  child: Text("Login"),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blueAccent,
-                    textStyle: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20),
+              child: Card(
+                surfaceTintColor: Colors.black54,
+                shadowColor: Colors.black,
+                elevation: 1,
+                child: Container(
+                  width: 220,
+                  height: 60,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, "login");
+                    },
+                    child: Text("Login", style: TextStyle(color: Colors.white),),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.pinkAccent.shade700,
+                      textStyle: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20),
+                    ),
                   ),
                 ),
               ),
@@ -42,20 +49,25 @@ class _LogRegisterState extends State<LogRegister> {
             SizedBox(
               height: 20,
             ),
-            Container(
-              width: 220,
-              height: 60,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, "register");
-                },
-                child: Text("Register"),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blueAccent,
-                  textStyle: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20),
+            Card(
+              surfaceTintColor: Colors.black54,
+              shadowColor: Colors.black,
+              elevation: 1,
+              child: Container(
+                width: 220,
+                height: 60,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, "register");
+                  },
+                  child: Text("Register", style: TextStyle(color: Colors.white),),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.pinkAccent.shade700,
+                    textStyle: const TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20),
+                  ),
                 ),
               ),
             ),

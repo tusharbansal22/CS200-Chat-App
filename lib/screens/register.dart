@@ -23,11 +23,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
             'Course Chat App',
             style: TextStyle(color: Colors.white),
           ),
-          backgroundColor: Colors.deepPurple[900],
+          backgroundColor: Colors.pinkAccent.shade700,
           centerTitle: true,
         ),
         body: Container(
-          color: Colors.deepPurple,
+          color: Colors.black87,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -39,7 +39,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     rollNo = value;
                   },
                   decoration: InputDecoration(
-                    fillColor: Colors.white70,
+                    fillColor: Colors.white,
                     filled: true,
                     enabledBorder: OutlineInputBorder().copyWith(
                         borderRadius:
@@ -62,7 +62,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   },
                   keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
-                    fillColor: Colors.white70,
+                    fillColor: Colors.white,
                     filled: true,
                     enabledBorder: OutlineInputBorder().copyWith(
                         borderRadius:
@@ -85,7 +85,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   },
                   obscureText: true,
                   decoration: InputDecoration(
-                    fillColor: Colors.white70,
+                    fillColor: Colors.white,
                     filled: true,
                     enabledBorder: OutlineInputBorder().copyWith(
                         borderRadius:
@@ -116,7 +116,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   },
                   obscureText: true,
                   decoration: InputDecoration(
-                    fillColor: Colors.white70,
+                    fillColor: Colors.white,
                     filled: true,
                     enabledBorder: OutlineInputBorder().copyWith(
                         borderRadius:
@@ -130,45 +130,49 @@ class _RegisterScreenState extends State<RegisterScreen> {
               SizedBox(
                 height: 25,
               ),
-              ElevatedButton(
-                onPressed: () {
-                  if (password != repassword) {
-                    setState(() {
-                      wrongPass = true;
-                    });
-                  } else {
-                    setState(
-                      () async {
-                        wrongPass = false;
-                        try {
-                          var supabase = Supabase.instance.client;
-                          await supabase.auth.signUp(
-                            email: email,
-                            password: password,
-                          );
-                          await supabase
-                              .from('Student Details')
-                              .insert({'Roll ID': rollNo, 'Email ID': email});
-                          Navigator.pushNamed(context, "chat");
-                        } catch (e) {
-                          print(e);
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                              content: Text('Signup failed.Please try again.'),
-                              backgroundColor: Colors.red,
-                            ),
-                          );
-                        }
-                      },
-                    );
-                  }
-                  ;
-                },
-                style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.white, fixedSize: Size(100, 40)),
-                child: Text(
-                  'Register',
-                  style: TextStyle(color: Colors.deepPurple),
+              Container(
+                width:320,
+                height: 50,
+                child: ElevatedButton(
+                  onPressed: () {
+                    if (password != repassword) {
+                      setState(() {
+                        wrongPass = true;
+                      });
+                    } else {
+                      setState(
+                        () async {
+                          wrongPass = false;
+                          try {
+                            var supabase = Supabase.instance.client;
+                            await supabase.auth.signUp(
+                              email: email,
+                              password: password,
+                            );
+                            await supabase
+                                .from('Student Details')
+                                .insert({'Roll ID': rollNo, 'Email ID': email});
+                            Navigator.pushNamed(context, "chat");
+                          } catch (e) {
+                            print(e);
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text('Signup failed.Please try again.'),
+                                backgroundColor: Colors.red,
+                              ),
+                            );
+                          }
+                        },
+                      );
+                    }
+                    ;
+                  },
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.pinkAccent.shade700, fixedSize: Size(100, 40)),
+                  child: Text(
+                    'Register',
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
               )
             ],

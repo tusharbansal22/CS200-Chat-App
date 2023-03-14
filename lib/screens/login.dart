@@ -21,11 +21,11 @@ class _LoginState extends State<Login> {
           style: TextStyle(color: Colors.white),
         ),
         centerTitle: true,
-        backgroundColor: Colors.deepPurple[900],
+        backgroundColor: Colors.pinkAccent.shade700 ,
       ),
       body: Container(
         width: double.infinity,
-        color: Colors.deepPurple,
+        color: Colors.black87,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -39,7 +39,7 @@ class _LoginState extends State<Login> {
                 textAlign: TextAlign.center,
                 keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
-                  fillColor: Colors.white70,
+                  fillColor: Colors.white,
                   filled: true,
                   enabledBorder: OutlineInputBorder().copyWith(
                       borderRadius:
@@ -66,7 +66,7 @@ class _LoginState extends State<Login> {
                 obscureText: true,
                 textAlign: TextAlign.center,
                 decoration: InputDecoration(
-                  fillColor: Colors.white70,
+                  fillColor: Colors.white,
                   filled: true,
                   enabledBorder: OutlineInputBorder().copyWith(
                       borderRadius:
@@ -82,9 +82,12 @@ class _LoginState extends State<Login> {
             ),
             Container(
               margin: EdgeInsets.symmetric(horizontal: 20),
+              width: 400,
+              height: 50,
+              // color: Colors.pinkAccent.shade700,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.white, fixedSize: Size(100, 40)),
+                    backgroundColor: Colors.pinkAccent.shade700, fixedSize: Size(100, 40)),
                 onPressed: () async {
                   final AuthResponse res =
                       await supabase.auth.signInWithPassword(
@@ -95,7 +98,7 @@ class _LoginState extends State<Login> {
                 },
                 child: Text(
                   'Login',
-                  style: TextStyle(color: Colors.deepPurple),
+                  style: TextStyle(color: Colors.white),
                 ),
               ),
             ),
