@@ -12,7 +12,7 @@ class _LogRegisterState extends State<LogRegister> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.pinkAccent.shade700,
+        backgroundColor: Colors.blueAccent.shade700,
         title: Text("Course Chat App", style: TextStyle(color: Colors.white),),
         centerTitle: true,
       ),
@@ -36,7 +36,7 @@ class _LogRegisterState extends State<LogRegister> {
                     },
                     child: Text("Login", style: TextStyle(color: Colors.white),),
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.pinkAccent.shade700,
+                      backgroundColor: Colors.blueAccent.shade700,
                       textStyle: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
@@ -62,7 +62,7 @@ class _LogRegisterState extends State<LogRegister> {
                   },
                   child: Text("Register", style: TextStyle(color: Colors.white),),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.pinkAccent.shade700,
+                    backgroundColor: Colors.blueAccent.shade700,
                     textStyle: const TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,

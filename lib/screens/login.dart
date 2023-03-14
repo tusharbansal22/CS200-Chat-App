@@ -21,7 +21,7 @@ class _LoginState extends State<Login> {
           style: TextStyle(color: Colors.white),
         ),
         centerTitle: true,
-        backgroundColor: Colors.pinkAccent.shade700 ,
+        backgroundColor: Colors.blueAccent.shade700 ,
       ),
       body: Container(
         width: double.infinity,
@@ -87,7 +87,7 @@ class _LoginState extends State<Login> {
               // color: Colors.pinkAccent.shade700,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.pinkAccent.shade700, fixedSize: Size(100, 40)),
+                    backgroundColor: Colors.blueAccent.shade700, fixedSize: Size(100, 40)),
                 onPressed: () async {
                   final AuthResponse res =
                       await supabase.auth.signInWithPassword(
