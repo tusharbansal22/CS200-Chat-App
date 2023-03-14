@@ -23,7 +23,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             'Course Chat App',
             style: TextStyle(color: Colors.white),
           ),
-          backgroundColor: Colors.blueAccent.shade700,
+          backgroundColor: Colors.tealAccent.shade700,
           centerTitle: true,
         ),
         body: Container(
@@ -168,7 +168,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ;
                   },
                   style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blueAccent.shade700, fixedSize: Size(100, 40)),
+                      backgroundColor: Colors.tealAccent.shade700, fixedSize: Size(100, 40)),
                   child: Text(
                     'Register',
                     style: TextStyle(color: Colors.white),
