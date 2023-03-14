@@ -40,7 +40,7 @@ class _ChatState extends State<Chat> {
                     await supabase.auth.signOut();
                     Navigator.pop(context);
                   }),
-            ],backgroundColor: Colors.black54,centerTitle: true,elevation: 1.5,titleTextStyle: TextStyle(color: Colors.white,fontSize: 16,fontStyle: FontStyle.normal)))
+            ],backgroundColor: Colors.pinkAccent.shade700,centerTitle: true,elevation: 1.5,titleTextStyle: TextStyle(color: Colors.white,fontSize: 16,fontStyle: FontStyle.normal)))
         , body: SafeArea(
         child: StreamBuilder(
             stream: _stream,
@@ -117,7 +117,7 @@ class _ChatState extends State<Chat> {
                                           style: TextStyle(fontSize: 12,color: Colors.white),
                                         )),
                                     Card(
-                                      elevation:10,
+                                      elevation:100,
                                       color: Colors.transparent,
                                       child: Container(
                                         constraints: BoxConstraints(
@@ -127,12 +127,12 @@ class _ChatState extends State<Chat> {
                                         padding: EdgeInsets.symmetric(
                                             horizontal: 5, vertical: 15),
                                         decoration: BoxDecoration(
-                                            boxShadow:[BoxShadow(blurRadius: 10)],
+                                            boxShadow:[BoxShadow(blurRadius: 0)],
                                             color: (snapshot.data![index]
                                             ['user'] !=
                                                 '${email}')
-                                                ?Colors.blue.shade900
-                                                : Colors.lightBlueAccent.shade700,
+                                                ?Colors.black87
+                                                : Colors.pinkAccent.shade700,
                                             borderRadius:(snapshot.data![index]
                                             ['user'] !=
                                                 '${email}')?
